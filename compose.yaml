@@ -1,0 +1,25 @@
+services:
+  backend:
+    container_name: bartender-backend
+    build: .
+    command: tail -f /dev/null
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"  # Host:Container (Change according to your needs)
+
+    develop:
+      # Create a 'watch' configuration for the backend service
+      watch:
+        # Sync the working directory with the `/app` directory in the container
+        - action: sync
+          path: .
+          target: /app
+          # Exclude the project virtual environment — it could be for a
+          # different platform in the container
+          ignore:
+            - .venv/
+
+        # Rebuild the image on changes to the `pyproject.toml`
+        - action: rebuild
+          path: ./pyproject.toml
