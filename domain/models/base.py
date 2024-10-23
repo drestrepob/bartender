@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 
 
-@dataclass
+@dataclass(kw_only=True)
 class TimeStampedModel:
     """A model that has a created and updated timestamp."""
     created_at: datetime = field(default_factory=datetime.now, init=False)
