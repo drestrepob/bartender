@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from domain.models.base import TimeStampedModel
-from domain.models.mixins.as_dict import DictSerializerMixin
+from bartender.domain.models.base import TimeStampedModel
+from bartender.domain.models.mixins.as_dict import DictSerializerMixin
 
 
 @dataclass

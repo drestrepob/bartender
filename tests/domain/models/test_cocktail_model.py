@@ -1,4 +1,4 @@
-from domain.models.cocktail import Cocktail
+from bartender.domain.models.cocktail import Cocktail
 from tests.domain.factories import CocktailFactory
 
 

@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
 
-from domain.models.base import TimeStampedModel
-from domain.models.ingredient import Ingredient
-from domain.models.mixins.as_dict import DictSerializerMixin
+from bartender.domain.models.base import TimeStampedModel
+from bartender.domain.models.ingredient import Ingredient
+from bartender.domain.models.mixins.as_dict import DictSerializerMixin
 
 
 @dataclass

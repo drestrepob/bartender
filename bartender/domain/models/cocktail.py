@@ -1,11 +1,11 @@
 from dataclasses import dataclass, field
 
-from domain.models.base import TimeStampedModel
-from domain.models.cocktail_method import CocktailMethod
-from domain.models.cocktail_ingredient import CocktailIngredient
-from domain.models.glass import Glass
-from domain.models.mixins.as_dict import DictSerializerMixin
-from domain.models.tag import Tag
+from bartender.domain.models.base import TimeStampedModel
+from bartender.domain.models.cocktail_method import CocktailMethod
+from bartender.domain.models.cocktail_ingredient import CocktailIngredient
+from bartender.domain.models.glass import Glass
+from bartender.domain.models.mixins.as_dict import DictSerializerMixin
+from bartender.domain.models.tag import Tag
 
 
 @dataclass

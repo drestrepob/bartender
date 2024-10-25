@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from domain.models.ingredient_category import IngredientCategory
-from domain.interfaces.repository import Repository
+from bartender.domain.models.ingredient_category import IngredientCategory
+from bartender.domain.interfaces.repository import Repository
 
 
 class IngredientCategoryRepository(Repository[IngredientCategory], ABC):

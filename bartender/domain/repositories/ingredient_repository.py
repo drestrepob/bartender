@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from domain.models.ingredient import Ingredient
-from domain.interfaces.repository import Repository
+from bartender.domain.models.ingredient import Ingredient
+from bartender.domain.interfaces.repository import Repository
 
 
 class IngredientRepository(Repository[Ingredient], ABC):

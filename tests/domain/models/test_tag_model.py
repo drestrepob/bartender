@@ -1,4 +1,4 @@
-from domain.models.tag import Tag
+from bartender.domain.models.tag import Tag
 from tests.domain.factories import TagFactory
 
 

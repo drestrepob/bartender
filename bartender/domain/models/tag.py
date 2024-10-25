@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from domain.models.base import TimeStampedModel
+from bartender.domain.models.base import TimeStampedModel
 
 
 @dataclass

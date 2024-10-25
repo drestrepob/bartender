@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from domain.models.tag import Tag
-from domain.interfaces.repository import Repository
+from bartender.domain.models.tag import Tag
+from bartender.domain.interfaces.repository import Repository
 
 
 class TagRepository(Repository[Tag], ABC):

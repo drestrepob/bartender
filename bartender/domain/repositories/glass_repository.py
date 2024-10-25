@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from domain.models.glass import Glass
-from domain.interfaces.repository import Repository
+from bartender.domain.models.glass import Glass
+from bartender.domain.interfaces.repository import Repository
 
 
 class GlassRepository(Repository[Glass], ABC):

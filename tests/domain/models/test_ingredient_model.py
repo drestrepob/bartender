@@ -1,4 +1,4 @@
-from domain.models.ingredient import Ingredient
+from bartender.domain.models.ingredient import Ingredient
 from tests.domain.factories import IngredientFactory
 
 

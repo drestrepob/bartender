@@ -1,4 +1,4 @@
-from domain.models.ingredient_category import IngredientCategory
+from bartender.domain.models.ingredient_category import IngredientCategory
 from tests.domain.factories import IngredientCategoryFactory
 
 

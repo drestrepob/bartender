@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from domain.models.cocktail import Cocktail
-from domain.interfaces.repository import Repository
+from bartender.domain.models.cocktail import Cocktail
+from bartender.domain.interfaces.repository import Repository
 
 
 class CocktailRepository(Repository[Cocktail], ABC):

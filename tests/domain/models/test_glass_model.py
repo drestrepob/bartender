@@ -1,4 +1,4 @@
-from domain.models.glass import Glass
+from bartender.domain.models.glass import Glass
 from tests.domain.factories import GlassFactory
 
 

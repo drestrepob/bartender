@@ -1,12 +1,12 @@
 import factory
 
-from domain.models.cocktail import Cocktail
-from domain.models.cocktail_ingredient import CocktailIngredient
-from domain.models.cocktail_method import CocktailMethod
-from domain.models.glass import Glass
-from domain.models.ingredient import Ingredient
-from domain.models.ingredient_category import IngredientCategory
-from domain.models.tag import Tag
+from bartender.domain.models.cocktail import Cocktail
+from bartender.domain.models.cocktail_ingredient import CocktailIngredient
+from bartender.domain.models.cocktail_method import CocktailMethod
+from bartender.domain.models.glass import Glass
+from bartender.domain.models.ingredient import Ingredient
+from bartender.domain.models.ingredient_category import IngredientCategory
+from bartender.domain.models.tag import Tag
 
 
 class CocktailMethodFactory(factory.Factory):
