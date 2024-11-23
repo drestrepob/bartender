@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from bartender.domain.models.base import EntityId
 from bartender.domain.models.cocktail_method import CocktailMethod
 from bartender.domain.interfaces.repository import Repository
 
@@ -12,7 +13,7 @@ class CocktailMethodRepository(Repository[CocktailMethod], ABC):
         pass
 
     @abstractmethod
-    def get(self, id_: int) -> CocktailMethod:
+    def get(self, id_: EntityId) -> CocktailMethod:
         pass
 
     @abstractmethod
@@ -24,5 +25,5 @@ class CocktailMethodRepository(Repository[CocktailMethod], ABC):
         pass
 
     @abstractmethod
-    def update(self, cocktail_method: CocktailMethod) -> CocktailMethod:
+    def update(self, id_: EntityId, fields: dict) -> None:
         pass

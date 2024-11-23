@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Any, Generic, TypeVar
+from typing import Generic, TypeVar
+
+from bartender.domain.models.base import EntityId
 
 T = TypeVar("T")
 
@@ -12,7 +14,7 @@ class Repository(Generic[T], ABC):
         pass
 
     @abstractmethod
-    def get(self, id_: Any) -> T:
+    def get(self, id_: EntityId) -> T:
         pass
 
     @abstractmethod

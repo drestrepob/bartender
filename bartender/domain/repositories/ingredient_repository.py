@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from bartender.domain.models.base import EntityId
 from bartender.domain.models.ingredient import Ingredient
 from bartender.domain.interfaces.repository import Repository
 
@@ -12,7 +13,7 @@ class IngredientRepository(Repository[Ingredient], ABC):
         pass
 
     @abstractmethod
-    def get(self, id_: int) -> Ingredient:
+    def get(self, id_: EntityId) -> Ingredient:
         pass
 
     @abstractmethod
@@ -24,5 +25,5 @@ class IngredientRepository(Repository[Ingredient], ABC):
         pass
 
     @abstractmethod
-    def update(self, ingredient: Ingredient) -> Ingredient:
+    def update(self, id_: EntityId, fields: dict) -> None:
         pass

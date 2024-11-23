@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from bartender.domain.models.base import EntityId
 from bartender.domain.models.glass import Glass
 from bartender.domain.interfaces.repository import Repository
 
@@ -12,7 +13,7 @@ class GlassRepository(Repository[Glass], ABC):
         pass
 
     @abstractmethod
-    def get(self, id_: int) -> Glass:
+    def get(self, id_: EntityId) -> Glass:
         pass
 
     @abstractmethod
@@ -24,5 +25,5 @@ class GlassRepository(Repository[Glass], ABC):
         pass
 
     @abstractmethod
-    def update(self, glass: Glass) -> Glass:
+    def update(self, id_: EntityId, fields: dict) -> None:
         pass
