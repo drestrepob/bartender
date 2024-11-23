@@ -8,30 +8,34 @@ services:
       - .env
     ports:
       - "8000:8000"  # Host:Container (Change according to your needs)
+    volumes:
+      - ./bartender:/app/bartender
+      - ./tests:/app/tests
 
-    develop:
-      # Create a 'watch' configuration for the backend service
-      watch:
-        # Sync the working directory with the `/app` directory in the container
-        - action: sync
-          path: .
-          target: /app
-          # Exclude the project virtual environment — it could be for a
-          # different platform in the container
-          ignore:
-            - .venv/
-
-        # Rebuild the image on changes to the `pyproject.toml`
-        - action: rebuild
-          path: ./pyproject.toml
-
-        # Rebuild the image on changes to the `Dockerfile`
-        - action: rebuild
-          path: ./Dockerfile
+    # TODO: At this moment, sync is 1-way: changes in the host system will be reflected in the container, but not the other way round.
+#    develop:
+#      # Create a 'watch' configuration for the backend service
+#      watch:
+#        # Sync the working directory with the `/app` directory in the container
+#        - action: sync
+#          path: .
+#          target: /app
+#          # Exclude the project virtual environment — it could be for a
+#          # different platform in the container
+#          ignore:
+#            - .venv/
+#
+#        # Rebuild the image on changes to the `pyproject.toml`
+#        - action: rebuild
+#          path: ./pyproject.toml
+#
+#        # Rebuild the image on changes to the `Dockerfile`
+#        - action: rebuild
+#          path: ./Dockerfile
 
   db:
     ports:
-      - "15000:5432"  # Host:Container (Change according to your needs)
+      - "50000:5432"  # Host:Container (Change according to your needs)
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
