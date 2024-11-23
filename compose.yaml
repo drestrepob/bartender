@@ -1,0 +1,21 @@
+# BASE CONFIG: applies to all environments. It does not work alone.
+
+services:
+  backend:
+    container_name: bartender-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    container_name: bartender-db
+    image: postgres:15.8-alpine
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
