@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 
-from bartender.domain.models.base import TimeStampedModel
+from bartender.domain.models.base import BaseModel
 from bartender.domain.models.mixins.as_dict import DictSerializerMixin
 
 
-@dataclass
-class User(TimeStampedModel, DictSerializerMixin):
+@dataclass(slots=True)
+class User(BaseModel, DictSerializerMixin):
     """Represents a user of the system."""
     username: str
     email: str

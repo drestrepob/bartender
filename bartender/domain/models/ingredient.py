@@ -1,12 +1,12 @@
 from dataclasses import dataclass
 
-from bartender.domain.models.base import TimeStampedModel
+from bartender.domain.models.base import BaseModel
 from bartender.domain.models.ingredient_category import IngredientCategory
 from bartender.domain.models.mixins.as_dict import DictSerializerMixin
 
 
-@dataclass
-class Ingredient(TimeStampedModel, DictSerializerMixin):
+@dataclass(slots=True)
+class Ingredient(BaseModel, DictSerializerMixin):
     """Represents an ingredient used in a cocktail recipe."""
     name: str
     description: str

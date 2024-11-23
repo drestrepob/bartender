@@ -1,8 +1,8 @@
 from dataclasses import dataclass
+from bartender.domain.models.base import BaseModel
+from bartender.domain.models.mixins.as_dict import DictSerializerMixin
 
-from bartender.domain.models.base import TimeStampedModel
 
-
-@dataclass
-class Tag(TimeStampedModel):
+@dataclass(slots=True)
+class Tag(BaseModel, DictSerializerMixin):
     name: str
