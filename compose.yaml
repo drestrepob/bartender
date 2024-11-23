@@ -1,25 +1,21 @@
+# BASE CONFIG: applies to all environments. It does not work alone.
+
 services:
   backend:
     container_name: bartender-backend
-    build: .
-    command: tail -f /dev/null
-    env_file:
-      - .env
-    ports:
-      - "8000:8000"  # Host:Container (Change according to your needs)
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
 
-    develop:
-      # Create a 'watch' configuration for the backend service
-      watch:
-        # Sync the working directory with the `/app` directory in the container
-        - action: sync
-          path: .
-          target: /app
-          # Exclude the project virtual environment — it could be for a
-          # different platform in the container
-          ignore:
-            - .venv/
-
-        # Rebuild the image on changes to the `pyproject.toml`
-        - action: rebuild
-          path: ./pyproject.toml
+  db:
+    container_name: bartender-db
+    image: postgres:15.8-alpine
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s

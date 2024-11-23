@@ -1,0 +1,44 @@
+# LOCAL-DEVELOPMENT CONFIG: 'docker compose up' reads it automatically along with the compose.yaml file
+# See: https://docs.docker.com/compose/extends
+
+services:
+  backend:
+    command: manage runserver 0.0.0.0:8000
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"  # Host:Container (Change according to your needs)
+    volumes:
+      - ./bartender:/app/bartender
+      - ./tests:/app/tests
+
+    # TODO: At this moment, sync is 1-way: changes in the host system will be reflected in the container, but not the other way round.
+#    develop:
+#      # Create a 'watch' configuration for the backend service
+#      watch:
+#        # Sync the working directory with the `/app` directory in the container
+#        - action: sync
+#          path: .
+#          target: /app
+#          # Exclude the project virtual environment — it could be for a
+#          # different platform in the container
+#          ignore:
+#            - .venv/
+#
+#        # Rebuild the image on changes to the `pyproject.toml`
+#        - action: rebuild
+#          path: ./pyproject.toml
+#
+#        # Rebuild the image on changes to the `Dockerfile`
+#        - action: rebuild
+#          path: ./Dockerfile
+
+  db:
+    ports:
+      - "50000:5432"  # Host:Container (Change according to your needs)
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
