@@ -4,7 +4,6 @@ include .env
 awslocal=aws --endpoint-url http://localhost:4566
 clean-flags=--volumes --rmi all --remove-orphans
 dc=docker compose
-django-project-path=bartender/infrastructure/frameworks/django
 
 build:
 	$(dc) up --build --watch
@@ -40,16 +39,16 @@ show-migrations:
 	$(dc) exec backend manage showmigrations
 
 test:
-	uv run pytest -x --ds=bartender.infrastructure.settings.test
+	uv run pytest -x
 
 test-parallel:
-	uv run pytest -n auto --ds=bartender.infrastructure.settings.test
+	uv run pytest -n auto
 
 test-directory:
-	uv run pytest $(directory) -x --ds=bartender.infrastructure.settings.test
+	uv run pytest $(directory) -x
 
 coverage:
-	uv run pytest -x --ds=bartender.infrastructure.settings.test --no-cov-on-fail --cov=. --no-header
+	uv run pytest -x --no-cov-on-fail --cov=. --no-header
 
 coverage-html:
-	uv run pytest -x --ds=bartender.infrastructure.settings.test --no-cov-on-fail --cov=. --cov-report=html --no-header
+	uv run pytest -x --no-cov-on-fail --cov=. --cov-report=html --no-header
