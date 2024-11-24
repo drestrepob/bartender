@@ -23,10 +23,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bartender.infrastructure.database.apps.tags',
-    'bartender.infrastructure.database.apps.glassware',
-    'bartender.infrastructure.database.apps.ingredients',
-    'bartender.infrastructure.database.apps.cocktails',
+    # 'bartender.infrastructure.database.apps.tags',
+    # 'bartender.infrastructure.database.apps.glassware',
+    # 'bartender.infrastructure.database.apps.ingredients',
+    # 'bartender.infrastructure.database.apps.cocktails',
 ]
 
 MIDDLEWARE = [
